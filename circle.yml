@@ -57,7 +57,7 @@ test:
     # - npm run build:production
     - if [ $CIRCLE_BRANCH = next ] || [ $CIRCLE_BRANCH = master ]; then
         sed -i -e 's/\/node_modules\///g' .gitignore &&
-        # sed -i -e 's/\/dist\///' .gitignore &&
+        sed -i -e 's/\/dist\///' .gitignore &&
         npm run gitignore &&
         git config user.name "circleci" &&
         git config user.email "jon@linesandwaves.com" &&
