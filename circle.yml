@@ -63,7 +63,7 @@ test:
         git config user.email "jon@linesandwaves.com" &&
         git add -A &&
         git commit -m "build" &&
-        git push -f git@heroku.com:intern-starterkit-build.git ${CIRCLE_BRANCH}:master; fi
+        git push -f git@heroku.com:functional-starterkit-build.git ${CIRCLE_BRANCH}:master; fi
 
   override:
     - npm run tests:functional
@@ -78,4 +78,4 @@ deployment:
   production:
     branch: master
     commands:
-      - git push -f git@heroku.com:intern-starterkit-build.git ${CIRCLE_BRANCH}:master
+      - git push -f git@heroku.com:functional-starterkit-build.git ${CIRCLE_BRANCH}:master
