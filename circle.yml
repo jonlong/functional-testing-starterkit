@@ -1,0 +1,81 @@
+## Machine Settings
+#
+### Environment:
+#
+# TEST_ENV is used by the Gulpfile to determine which Intern
+# configuration to use, and whether to configure local Selenium
+# or BrowserStack.
+#
+# NODE_ENV is used to differentiate the CircleCI environment from
+# `development` or `production`.
+
+machine:
+  node:
+    version: 0.12
+  environment:
+    TEST_ENV: test
+    NODE_ENV: test
+
+## Test Commands
+#
+# The `next` and `master` branches are where we run our tests for production
+# (the difference being that our functional tests will run against BrowserStack
+# for production rather than local Selenium).
+#
+# For development branches, we test the app by serving it from CircleCI, but for
+# production branches we want to test it in a mirror of the final environment,
+# so we deploy to a build server on Heroku before running tests.
+#
+### Notes:
+#
+# In order to set the TEST_ENV variable, we have to add it to the `.circlerc`
+# file rather than just export it directly since each command runs in a separate
+# shell. The `.circlerc` file is sourced before each test and deploy command.
+#
+# We are also deploying built files and `node_modules` to Heroku. This prevents
+# Heroku from having to build them again after we push, and ensures that the
+# server we do BrowserStack tests on is ready as soon as the tests start.
+#
+# Problem is that we don't want to deploy the `devDependencies` to Heroku, so
+# instead we modify the .gitignore file on the fly to prevent their inclusion.
+#
+# So the steps are:
+# - install everything
+# - remove the `/dist/` and `/node_modules/` directories from .gitignore
+# - add the devDependencies to .gitignore
+#
+### Pre:
+#
+# - Detect builds for production, set TEST_ENV accordingly
+# - Build the files as though they are going to production
+# - Deploy production builds to heroku build server for BrowserStack testing
+
+test:
+  pre:
+    - if [ $CIRCLE_BRANCH = next ] || [ $CIRCLE_BRANCH = master ]; then
+        echo 'export TEST_ENV=production' >> ~/.circlerc; fi
+    # - npm run build:production
+    - if [ $CIRCLE_BRANCH = next ] || [ $CIRCLE_BRANCH = master ]; then
+        sed -i -e 's/\/node_modules\///g' .gitignore &&
+        # sed -i -e 's/\/dist\///' .gitignore &&
+        npm run gitignore &&
+        git config user.name "circleci" &&
+        git config user.email "jon@linesandwaves.com" &&
+        git add -A &&
+        git commit -m "build" &&
+        git push -f git@heroku.com:intern-starterkit-build.git ${CIRCLE_BRANCH}:master; fi
+
+  override:
+    - npm run tests:functional
+
+## Deployment Commands
+#
+# Again, we're deploying the node_modules and compiled assets we built in the
+# test steps. By the time they get here, they'll have devDependencies, so we need
+# to prune those before the final deployment.
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push -f git@heroku.com:intern-starterkit-build.git ${CIRCLE_BRANCH}:master

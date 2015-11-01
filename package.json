@@ -1,0 +1,43 @@
+{
+  "name": "internjs-functional-starterkit",
+  "version": "0.0.1",
+  "description": "A starter kit to help with scaffolding functional tests via Intern.js and CircleCI",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": "0.12.x"
+  },
+  "scripts": {
+    "server": "./node_modules/.bin/gulp server",
+    "tests:functional": "./node_modules/.bin/gulp tests:functional",
+    "gitignore": "./node_modules/.bin/gulp gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonlong/internjs-functional-starterkit.git"
+  },
+  "author": "Jon Long",
+  "license": "All Rights Reserved",
+  "bugs": {
+    "url": "https://github.com/jonlong/internjs-functional-starterkit/issues"
+  },
+  "homepage": "https://github.com/jonlong/internjs-functional-starterkit#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "chromedriver": "^2.19.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.0.0",
+    "gulp-live-server": "0.0.29",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-shell": "^0.5.1",
+    "gulp-util": "^3.0.7",
+    "gutil": "^1.6.4",
+    "intern": "^3.0.1",
+    "lodash": "^3.10.1"
+  },
+  "dependencies": {
+    "babel": "^5.8.29",
+    "express": "^4.13.3"
+  }
+}

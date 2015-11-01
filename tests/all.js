@@ -1,0 +1,7 @@
+/**
+ * Functional Tests
+ */
+
+define([
+  './Login'
+]);

@@ -1,0 +1,6 @@
+/node_modules
+/dist
+/built-tests
+/secrets.js
+.DS_Store
+npm-debug.log
