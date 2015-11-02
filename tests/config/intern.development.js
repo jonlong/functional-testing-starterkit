@@ -28,7 +28,7 @@ define(function(require) {
     // Only set this to true for debugging during local development.
     // It causes the browser to hang after error, which will also cause the CI
     // server to hang if it gets deployed while set to `true`.
-    leaveRemoteOpen: true,
+    leaveRemoteOpen: false,
 
     // Functional test suite(s) to execute against each browser once non-functional tests are completed
     functionalSuites: [ 'built-tests/all.js' ],
