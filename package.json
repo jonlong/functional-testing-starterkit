@@ -10,6 +10,8 @@
   "scripts": {
     "server": "./node_modules/.bin/gulp server",
     "tests:functional": "./node_modules/.bin/gulp tests:functional",
+    "tests:functional:debug": "DEBUG_TESTS=true ./node_modules/.bin/gulp tests:functional",
+    "chromedriver": "./node_modules/.bin/chromedriver --url-base=wd/hub --port=4444",
     "gitignore": "./node_modules/.bin/gulp gitignore"
   },
   "repository": {
@@ -26,6 +28,7 @@
     "browser-sync": "^2.9.11",
     "chromedriver": "^2.19.0",
     "del": "^2.0.2",
+    "errorhandler": "^1.4.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.0.0",
     "gulp-live-server": "0.0.29",
@@ -33,8 +36,9 @@
     "gulp-shell": "^0.5.1",
     "gulp-util": "^3.0.7",
     "gutil": "^1.6.4",
-    "intern": "^3.0.1",
-    "lodash": "^3.10.1"
+    "intern": "^3.0.6",
+    "lodash": "^3.10.1",
+    "node-inspector": "^0.12.3"
   },
   "dependencies": {
     "babel": "^5.8.29",

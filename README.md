@@ -16,5 +16,10 @@ Functional tests are run locally using ChromeDriver. `npm run tests:functional` 
 
 ### Debugging
 
+#### Front End
+
 By default, ChromeDriver will quit once the tests have run, but if you want to leave it open for debugging, set `leaveRemoteOpen` (inside `intern.development.js`) to `true`.
 
+#### Intern
+
+You can debug your tests themselves by running `npm run tests:functional:debug`, which will launch a [Node Inspector](https://github.com/node-inspector/node-inspector) debugger in Chrome. The Debugger works almost exactly like Chrome Developer Tools.

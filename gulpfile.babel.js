@@ -106,7 +106,7 @@ gulp.task('tests:functional', function() {
 
       gulp.src('')
         .pipe(shell([
-          `./node_modules/.bin/intern-runner config=${RELATIVE_APP_PATHS.tests.config}/<%= internConfig() %>`
+          `<%= debugConfig() %>./node_modules/.bin/intern-runner config=${RELATIVE_APP_PATHS.tests.config}/<%= internConfig() %>`
         ], {
           templateData: {
             internConfig: function() {
@@ -124,6 +124,20 @@ gulp.task('tests:functional', function() {
                 return 'intern.production';
               default:
                 return 'intern.development';
+              }
+            },
+
+            debugConfig: function() {
+
+              /**
+               * Use Node Inspector for Debugging
+               *
+               * If we want to debug local builds with Node Inspector, this command
+               * accepts a debug flag to run the tests accordingly.
+               */
+
+              if(process.env.DEBUG_TESTS) {
+                return './node_modules/.bin/node-debug ';
               }
             }
           }
