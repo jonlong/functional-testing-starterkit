@@ -78,4 +78,4 @@ deployment:
   production:
     branch: master
     commands:
-      - git push -f git@heroku.com:functional-starterkit-build.git ${CIRCLE_BRANCH}:master
+      - git push -f git@heroku.com:functional-starterkit.git ${CIRCLE_BRANCH}:master
