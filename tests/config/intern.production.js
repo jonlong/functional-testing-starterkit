@@ -4,7 +4,15 @@ define(function(require) {
   var config = require('intern/dojo/node!../../config');
 
   // Load secrets
-  var secrets = require('intern/dojo/node!../../secrets');
+  var secrets;
+  try {
+    secrets = require('intern/dojo/node!../../secrets');
+  }
+  catch (err) {
+    secrets = {}
+    console.log('Unable to read /secrets.js', err)
+    console.log('See /secrets.sample.js for an example')
+  }
 
   return {
 
@@ -18,21 +26,15 @@ define(function(require) {
         browserName: 'internet explorer',
         version: '10',
         platform: 'WIN8'
-      },
-
-      {
+      }, {
         browserName: 'firefox',
         version: '37',
         platform: [ 'WINDOWS', 'MAC' ]
-      },
-
-      {
+      }, {
         browserName: 'chrome',
         version: '39',
         platform: [ 'WINDOWS', 'MAC' ]
-      },
-
-      {
+      }, {
         browserName: 'safari',
         version: '8',
         platform: 'MAC'
@@ -46,8 +48,8 @@ define(function(require) {
     // See <https://theintern.github.io/intern/#option-tunnel> for built-in options
     tunnel: 'BrowserStackTunnel',
     tunnelOptions: {
-      username: secrets.browserStack.username,
-      accessKey: secrets.browserStack.accessKey
+      username: process.env.BROWSERSTACK_USERNAME || secrets.browserStack.username,
+      accessKey: process.env.BROWSERSTACK_ACCESSKEY || secrets.browserStack.accessKey
     },
 
     // We'll deploy to a build server that replicates our production
@@ -62,7 +64,5 @@ define(function(require) {
 
     // A regular expression matching URLs to files that should not be included in code coverage analysis
     excludeInstrumentation: /^(?:tests|node_modules)\//
-  }
-
+  };
 });
-

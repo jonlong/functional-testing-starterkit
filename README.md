@@ -53,6 +53,12 @@ If we want passing PRs to `master` to automatically deploy to production, we can
 - Launch a new instance as described above
 - Change the name of the git repo in [this line in `circle.yml`](https://github.com/jonlong/functional-testing-starterkit/blob/master/circle.yml#L81) to match your production app's repo name (e.g the repo name for `functional-starterkit.herokuapp.com` is `functional-starterkit.git`)
 
+
+### BrowserStack
+
+- Sign up for [BrowserStack Automate](https://www.browserstack.com/users/sign_up)
+- Copy your [Username and Access Key](https://www.browserstack.com/accounts/automate) and add them in `secrets.js` and the `BROWSERSTACK_USERNAME`/`BROWSERSTACK_ACCESSKEY` environment variables on CircleCI.
+
 ## Local Testing
 
 Functional tests are run locally using ChromeDriver. `npm run tests:functional` to kick them off.
