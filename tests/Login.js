@@ -14,9 +14,7 @@ define(function(require) {
       return this.remote
 
         // Load the Page
-        //
-        // TODO: This is loading the root, not the specified page.
-        .get(require.toUrl('/pages/examples/login.html'))
+        .get(require.toUrl('../pages/examples/login.html'))
 
         // Cap the wait at five seconds
         .setFindTimeout(5000)
