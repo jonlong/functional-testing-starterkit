@@ -18,15 +18,11 @@ define(function(require) {
       }, {
         browserName: 'firefox',
         version: '37',
-        platform: [ 'WINDOWS', 'MAC' ]
+        platform: [ 'WINDOWS' ]
       }, {
         browserName: 'chrome',
         version: '39',
-        platform: [ 'WINDOWS', 'MAC' ]
-      }, {
-        browserName: 'safari',
-        version: '8',
-        platform: 'MAC'
+        platform: [ 'MAC' ]
       }
     ],
 
