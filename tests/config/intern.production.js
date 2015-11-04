@@ -3,17 +3,6 @@ define(function(require) {
   // Load our CommonJS config file using the Dogo node loader
   var config = require('intern/dojo/node!../../config');
 
-  // Load secrets
-  var secrets;
-  try {
-    secrets = require('intern/dojo/node!../../secrets');
-  }
-  catch (err) {
-    secrets = {}
-    console.log('Unable to read /secrets.js', err)
-    console.log('See /secrets.sample.js for an example')
-  }
-
   return {
 
     capabilities: {
@@ -48,8 +37,8 @@ define(function(require) {
     // See <https://theintern.github.io/intern/#option-tunnel> for built-in options
     tunnel: 'BrowserStackTunnel',
     tunnelOptions: {
-      username: process.env.BROWSERSTACK_USERNAME || secrets.browserStack.username,
-      accessKey: process.env.BROWSERSTACK_ACCESSKEY || secrets.browserStack.accessKey
+      username: process.env.BROWSERSTACK_USERNAME,
+      accessKey: process.env.BROWSERSTACK_ACCESSKEY
     },
 
     // We'll deploy to a build server that replicates our production
