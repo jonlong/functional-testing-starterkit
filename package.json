@@ -28,7 +28,6 @@
     "browser-sync": "^2.9.11",
     "chromedriver": "^2.19.0",
     "del": "^2.0.2",
-    "errorhandler": "^1.4.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.0.0",
     "gulp-live-server": "0.0.29",
@@ -42,6 +41,7 @@
   },
   "dependencies": {
     "babel": "^5.8.29",
+    "errorhandler": "^1.4.2",
     "express": "^4.13.3",
     "forever": "^0.15.1"
   }
