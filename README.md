@@ -44,6 +44,7 @@ Ok, with that out of the way, here's how to set up your CI server:
 At some point in your deployment pipeline, you'll probably want to run your tests in an environment that mirrors your production environment (rather than using a local server). CircleCI can deploy to any server, using custom commands, but for demo purposes we'll use their built-in Heroku integration. This Heroku server will be our "build" server, which functions as a duplicate of our production environment, and we'll use it exclusively for running tests via CircleCI.
 
 - [Launch a new instance](https://dashboard.heroku.com/new) and add your Heroku app's url to `config.APP_SETTINGS.build_url`.
+- Change the `HOST` environment variable to `0.0.0.0`
 - Go to the Project Settings in CircleCI and follow Steps 1 and 2 under "Heroku Deployment" (adding an API key and assigning an SSH key).
 
 #### Optional Production Server
