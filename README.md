@@ -73,3 +73,6 @@ By default, ChromeDriver will quit once the tests have run, but if you want to l
 #### Intern
 
 You can debug your tests themselves by running `npm run tests:functional:debug`, which will launch a [Node Inspector](https://github.com/node-inspector/node-inspector) debugger in Chrome. The Debugger works almost exactly like Chrome Developer Tools.
+
+
+testing for DCJS!

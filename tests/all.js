@@ -4,6 +4,5 @@
 
 define([
   './Login',
-  './Menubar',
-  './Mobile'
+  './Menubar'
 ]);
