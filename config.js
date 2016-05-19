@@ -36,7 +36,7 @@ config.APP_SETTINGS = {
   host: process.env.HOST || 'localhost',
   port: process.env.PORT ? process.env.PORT : 3000,
   selenium_port: process.env.SELENIUM_PORT ? process.env.SELENIUM_PORT : 3001,
-  build_url: 'http://functional-starterkit-build.herokuapp.com'
+  build_url: 'https://agiletesting.herokuapp.com/'
 };
 
 config.APP_URL = config.PROTOCOL + ':' + config.APP_SETTINGS.host + ':' + config.APP_SETTINGS.port;
