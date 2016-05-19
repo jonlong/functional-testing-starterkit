@@ -59,11 +59,11 @@ test:
         sed -i -e 's/\/node_modules\///g' .gitignore &&
         sed -i -e 's/\/dist\///' .gitignore &&
         npm run gitignore &&
-        git config user.name "circleci" &&
-        git config user.email "jon@linesandwaves.com" &&
+        git config user.name "jaimehperry" &&
+        git config user.email "jaime@codescience.com" &&
         git add -A &&
         git commit -m "build" &&
-        git push -f git@heroku.com:functional-starterkit-build.git ${CIRCLE_BRANCH}:master; fi
+        git push -f git@heroku.com:agiletesting.git ${CIRCLE_BRANCH}:master; fi
 
   override:
     - npm run tests:functional
@@ -78,4 +78,4 @@ deployment:
   production:
     branch: master
     commands:
-      - git push -f git@heroku.com:functional-starterkit.git ${CIRCLE_BRANCH}:master
+      - git push -f git@heroku.com:agiletesting.git ${CIRCLE_BRANCH}:master
