@@ -1,4 +1,5 @@
 var config = require('./config');
+var newrelic = require('newrelic');
 var errorhandler = require('errorhandler');
 var express = require('express');
 var app = express();
