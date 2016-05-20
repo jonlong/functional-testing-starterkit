@@ -3,8 +3,10 @@ var errorhandler = require('errorhandler');
 var express = require('express');
 var app = express();
 var { APP_PATHS, APP_SETTINGS, RELATIVE_APP_PATHS } = config;
-var port = process.env.PORT || APP_SETTINGS.port;
-var host = process.env.HOST || APP_SETTINGS.host;
+var port = process.env.PORT || 3000;
+var host = process.env.HOST || '0.0.0.0';
+console.info("port - " + port);
+console.info("host - " + host);
 
 app.set('view engine', 'html');
 app.set('views', APP_PATHS.views);
