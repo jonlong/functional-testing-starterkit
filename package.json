@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": "0.12.x"
+    "node": "6.2.0"
   },
   "scripts": {
     "server": "./node_modules/.bin/gulp server",
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonlong/internjs-functional-starterkit.git"
+    "url": "git+https://github.com/jaimehperry/internjs-functional-starterkit.git"
   },
-  "author": "Jon Long",
+  "author": "Jaime Perry",
   "license": "All Rights Reserved",
   "bugs": {
-    "url": "https://github.com/jonlong/internjs-functional-starterkit/issues"
+    "url": "https://github.com/jaimehperry/internjs-functional-starterkit/issues"
   },
-  "homepage": "https://github.com/jonlong/internjs-functional-starterkit#readme",
+  "homepage": "https://github.com/jaimehperry/internjs-functional-starterkit#readme",
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "chromedriver": "^2.19.0",
