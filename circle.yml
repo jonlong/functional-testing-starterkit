@@ -78,4 +78,5 @@ deployment:
   production:
     branch: master
     commands:
+      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
       - git push -f git@heroku.com:agiletesting.git ${CIRCLE_BRANCH}:master
