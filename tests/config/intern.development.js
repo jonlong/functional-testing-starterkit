@@ -12,9 +12,9 @@ define(function(require) {
     // Browsers to run integration testing against.
     environments: [
       {
-        browserName: 'firefox',
-        version: '37',
-        platform: [ 'MAC' ]
+        browserName: 'chrome',
+        version: '50',
+        platform: 'MAC'
       }
     ],
 
