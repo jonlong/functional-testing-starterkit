@@ -11,7 +11,7 @@ define(function(require) {
 
     // Browsers to run integration testing against.
     environments: [
-      { browserName: 'chrome', version: '50.0.2661.0' }
+      { browserName: 'chrome', version: '47' }
     ],
 
     // Maximum number of simultaneous integration tests that should be executed on the remote WebDriver service

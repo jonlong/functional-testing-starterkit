@@ -19,6 +19,10 @@ define(function(require) {
         browserName: 'firefox',
         version: '37',
         platform: [ 'WINDOWS' ]
+      }, {
+        browserName: 'chrome',
+        version: '47',
+        platform: [ 'MAC' ]
       }
     ],
 
