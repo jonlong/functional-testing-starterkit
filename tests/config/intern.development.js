@@ -15,6 +15,7 @@ define(function(require) {
         browserName: 'chrome',
         version: '50',
         platform: 'MAC'
+        
       }
     ],
 
