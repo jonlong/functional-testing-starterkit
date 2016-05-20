@@ -1,5 +1,5 @@
 var config = require('./config');
-var newrelic = require('newrelic');
+var newrelic = require('intern/dojo/node!newrelic');
 var errorhandler = require('errorhandler');
 var express = require('express');
 var app = express();
